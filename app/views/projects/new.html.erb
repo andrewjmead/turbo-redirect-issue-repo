@@ -1,0 +1,8 @@
+<h1>Projects#new</h1>
+<p>Find me in app/views/projects/new.html.erb</p>
+
+<%= turbo_frame_tag "new_project" do %>
+  <%= form_with url: projects_path, method: :post do |f| %>
+    <%= f.submit "Submit" %>
+  <% end %>
+<% end %>
