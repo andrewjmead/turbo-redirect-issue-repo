@@ -3,11 +3,12 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    # The official docs mention a 303 as the status code to use.
-    # Neither of the redirect_to calls below work.
-
-    redirect_to project_path(1)
-    # redirect_to project_path(1), status: 303
+    if params[:name] == "valid"
+      redirect_to project_path(1)
+    else
+      @error = "some error"
+      render turbo_stream: turbo_stream.replace("new_project", partial: "form")
+    end
   end
 
   def show

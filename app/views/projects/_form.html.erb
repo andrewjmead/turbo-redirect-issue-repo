@@ -1,0 +1,9 @@
+<div id="new_project">
+  <% if @error.present? %>
+    <p><%= @error %></p>
+  <% end %>
+  <%= form_with url: projects_path, data: { "turbo-frame": "_top" }, method: :post do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
